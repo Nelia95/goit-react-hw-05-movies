@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Outlet, useParams, useLocation, NavLink } from 'react-router-dom';
 import { fetchMovieDetails } from '..//../apiMovies';
+import style from './MovieDetails.module.css';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -23,28 +24,47 @@ const MovieDetails = () => {
   return (
     <>
       {details && (
-        <div>
-          <div>
-            <NavLink to={location?.state?.from ?? '/'}> ⇦ Go back</NavLink>
-            <img src={details.img} alt={details.title} />
+        <div className={style.detailsBox}>
+          <div className={style.imgBox}>
+            <NavLink
+              to={location?.state?.from ?? '/'}
+              className={style.detailsBtn}
+            >
+              {' '}
+              ⇦ Go back
+            </NavLink>
+            <img
+              src={details.poster_path}
+              alt={details.title}
+              className={style.detailsImg}
+            />
           </div>
-          <div>
-            <h2>
-              {details.title} ({details.releaseDate})
+          <div className={style.detailsInfo}>
+            <h2 className={style.detailsTitle}>
+              {details.title} ({details.release_date})
             </h2>
-            <p>User score: {details.vote}</p>
-            <h2>Overview</h2>
-            <p>{details.about}</p>
-            <h2>Genres</h2>
-            <p>{details.genre}</p>
+            <p className={style.detailsText}>
+              User score: {details.vote_average}
+            </p>
+            <h2 className={style.detailsTitle}>Overview</h2>
+            <p className={style.detailsText}>{details.overview}</p>
+            <h2 className={style.detailsTitle}>Genres</h2>
+            <p className={style.detailsText}>
+              {' '}
+              {details.genres.map(genre => genre.name).join(', ')}
+            </p>
           </div>
         </div>
       )}
-      <div>
-        <h2>Additional information</h2>
+      <div className={style.boxLink}>
+        <h2 className={style.detailsTitle}>Additional information</h2>
         <ul>
-          <NavLink to="cast">Cast</NavLink>
-          <NavLink to="reviews">Reviews</NavLink>
+          <NavLink to="cast" className={style.infoLink}>
+            Cast
+          </NavLink>
+          <NavLink to="reviews" className={style.infoLink}>
+            Reviews
+          </NavLink>
         </ul>
       </div>
       <Outlet />

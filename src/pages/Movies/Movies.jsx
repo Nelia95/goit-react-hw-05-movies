@@ -1,8 +1,10 @@
-import { HiOutlineSearchCircle } from 'react-icons/hi';
+import { BiSearchAlt } from 'react-icons/bi';
 import { useState, useEffect } from 'react';
 import MoviesList from '../../components/MoviesList/MoviesList';
 import { fetchMoviesWithQuery } from '../../apiMovies';
 import { useSearchParams } from 'react-router-dom';
+import { IconContext } from 'react-icons';
+import style from './Movies.module.css';
 
 const Movies = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -63,16 +65,27 @@ const Movies = () => {
 
   return (
     <>
-      <div onSubmit={handleSubmit}>
+      <div className={style.box} onSubmit={handleSubmit}>
         <input
+          className={style.input}
           name="searchQuery"
           type="text"
           autoComplete="off"
           autoFocus
           placeholder="Search..."
         />
-        <button type="submit">
-          <HiOutlineSearchCircle size="35" color="#fff" />
+        <button type="submit" className={style.btn}>
+          <IconContext.Provider
+            value={{
+              color: 'black',
+              size: '35',
+              className: 'global-class-name',
+            }}
+          >
+            <div>
+              <BiSearchAlt />
+            </div>
+          </IconContext.Provider>
         </button>
       </div>
       {!error ? (

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { fetchReviews } from '../../apiMovies';
 import { useParams } from 'react-router';
+import style from './Reviews.module.css';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -20,26 +21,31 @@ const Reviews = () => {
   }, [movieId]);
 
   return (
-    <div>
+    <div className={style.reviewsBox}>
       {reviews.length !== 0 ? (
-        <ul>
+        <ul className={style.reviewsList}>
           {reviews &&
             reviews.map(({ content, author_details, id }) => {
+              // console.log(content, author_details, id);
               return (
-                <li key={id} data-id={id}>
-                  <p>
+                <li key={id} data-id={id} className={style.reviewsItem}>
+                  <p className={style.reviewsText}>
                     Author:{' '}
                     {author_details.name ? author_details.name : 'Anonymous'}
                   </p>
-                  <p>Rating: {author_details.rating}</p>
+                  <p className={style.reviewsText}>
+                    Rating: {author_details.rating}
+                  </p>
 
-                  <p>{content}</p>
+                  <p className={style.reviewsText}>{content}</p>
                 </li>
               );
             })}
         </ul>
       ) : (
-        <p>We don't have any reviews for this movie</p>
+        <p className={style.reviewsText}>
+          We don't have any reviews for this movie
+        </p>
       )}
     </div>
   );
