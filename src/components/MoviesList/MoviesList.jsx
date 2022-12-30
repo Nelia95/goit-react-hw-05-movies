@@ -8,14 +8,18 @@ const MoviesList = ({ movies }) => {
   return (
     <ul className={style.movieList}>
       {movies &&
-        movies.map(({ id, img, title }) => (
+        movies.map(({ id, poster_path, title }) => (
           <Link
             to={`/movies/${id}`}
             key={id}
             state={{ from: location }}
             className={style.movieLink}
           >
-            <img src={img} alt={title} className={style.movieImg} />
+            <img
+              src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+              alt={title}
+              className={style.movieImg}
+            />
             <h3 className={style.movieTitle}>{title}</h3>
           </Link>
         ))}

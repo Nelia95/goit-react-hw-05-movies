@@ -65,7 +65,7 @@ const Movies = () => {
 
   return (
     <>
-      <div className={style.box} onSubmit={handleSubmit}>
+      <form className={style.box} onSubmit={handleSubmit}>
         <input
           className={style.input}
           name="searchQuery"
@@ -87,7 +87,7 @@ const Movies = () => {
             </div>
           </IconContext.Provider>
         </button>
-      </div>
+      </form>
       {!error ? (
         <MoviesList movies={movies} />
       ) : (

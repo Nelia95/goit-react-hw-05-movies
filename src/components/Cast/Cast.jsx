@@ -31,7 +31,7 @@ const Cast = () => {
                 <li key={id} className={style.castItem}>
                   <img
                     className={style.castImg}
-                    src={`https://image.tmdb.org/t/p/w200/${profile_path}`}
+                    src={`https://image.tmdb.org/t/p/w500/${profile_path}`}
                     alt={name}
                   />
                   <p className={style.castText}>{name}</p>

@@ -34,7 +34,8 @@ const MovieDetails = () => {
               ⇦ Go back
             </NavLink>
             <img
-              src={details.poster_path}
+              src={`https://image.tmdb.org/t/p/w500/${details.poster_path}`}
+              // src={details.poster_path}
               alt={details.title}
               className={style.detailsImg}
             />
