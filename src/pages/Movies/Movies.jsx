@@ -2,7 +2,7 @@ import { BiSearchAlt } from 'react-icons/bi';
 import { useState, useEffect } from 'react';
 import MoviesList from '../../components/MoviesList/MoviesList';
 import { fetchMoviesWithQuery } from '../../apiMovies';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useLocation } from 'react-router-dom';
 import { IconContext } from 'react-icons';
 import style from './Movies.module.css';
 
@@ -11,6 +11,7 @@ const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams({});
+  const location = useLocation();
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -89,7 +90,7 @@ const Movies = () => {
         </button>
       </form>
       {!error ? (
-        <MoviesList movies={movies} />
+        <MoviesList movies={movies} location={location} />
       ) : (
         <p>No results found for '{searchQuery}'</p>
       )}

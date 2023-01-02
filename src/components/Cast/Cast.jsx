@@ -22,7 +22,7 @@ const Cast = () => {
 
   return (
     <div className={style.castBox}>
-      {credits.length !== 0 ? (
+      {credits.length !== 0 && (
         <ul className={style.castList}>
           {credits &&
             credits.map(({ name, profile_path, character, id }) => {
@@ -40,7 +40,8 @@ const Cast = () => {
               );
             })}
         </ul>
-      ) : (
+      )}{' '}
+      {credits.length === 0 && (
         <p className={style.castText}>
           We have no information about the actors of this movie
         </p>
