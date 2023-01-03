@@ -60,10 +60,18 @@ const MovieDetails = () => {
       <div className={style.boxLink}>
         <h2 className={style.detailsTitle}>Additional information</h2>
         <ul>
-          <NavLink to="cast" className={style.infoLink}>
+          <NavLink
+            to="cast"
+            state={{ from: location?.state?.from ?? '/' }}
+            className={style.infoLink}
+          >
             Cast
           </NavLink>
-          <NavLink to="reviews" className={style.infoLink}>
+          <NavLink
+            to="reviews"
+            state={{ from: location?.state?.from ?? '/' }}
+            className={style.infoLink}
+          >
             Reviews
           </NavLink>
         </ul>

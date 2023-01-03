@@ -8,13 +8,14 @@
 }
 .movieLink {
   width: 100%;
-  flex-basis: calc(100% / 5 - 15px);
+  flex-basis: calc(100% / 4 - 26px);
   padding: 5px;
   color: black;
   background: #fbf9fa3f;
   font-size: 18px;
   border-radius: 5px;
   text-decoration: none;
+  border: 2px solid rgb(3, 3, 54);
 }
 .movieImg {
   width: 100%;

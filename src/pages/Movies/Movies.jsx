@@ -92,7 +92,7 @@ const Movies = () => {
       {!error ? (
         <MoviesList movies={movies} location={location} />
       ) : (
-        <p>No results found for '{searchQuery}'</p>
+        <p className={style.moviesText}>No results found for `{searchQuery}`</p>
       )}
     </>
   );

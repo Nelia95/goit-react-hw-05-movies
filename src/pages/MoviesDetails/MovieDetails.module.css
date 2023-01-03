@@ -7,10 +7,12 @@
   flex-direction: column;
 }
 .detailsBtn {
-  background: #fbf9fa3f;
+  /* background: rgb(194, 194, 226); */
   padding: 10px 20px;
   border-radius: 5px;
-  font-size: 18px;
+  font-size: 30px;
+  text-decoration: none;
+  color: rgb(3, 29, 52);
 }
 .detailsImg {
   margin-top: 15px;
@@ -41,7 +43,8 @@
 .infoLink {
   font-size: 18px;
   text-decoration: none;
-  color: blue;
+  font-weight: 700;
+  color: rgb(25, 85, 215);
 }
 .infoLink:not(:last-of-type) {
   margin-right: 15px;
